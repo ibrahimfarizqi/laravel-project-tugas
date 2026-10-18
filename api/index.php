@@ -1,4 +1,5 @@
 <?php
+$_SERVER['HTTPS'] = 'on';
 
 // 1. Buat folder temporary di /tmp untuk Vercel
 $tmpDirs = [
