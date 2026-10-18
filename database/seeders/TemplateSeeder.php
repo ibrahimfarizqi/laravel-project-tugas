@@ -37,7 +37,7 @@ class TemplateSeeder extends Seeder
 
         // 3. JembutFolio Portfolio
         Template::create([
-            'judul' => 'JembutFolio Portfolio',
+            'judul' => 'DevFolio Portfolio',
             'kategori' => 'Portfolio',
             'tech_stack' => 'HTML, CSS, JavaScript, Tailwind',
             'thumbnail' => 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80',

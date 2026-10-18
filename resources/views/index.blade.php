@@ -13,7 +13,7 @@
         body { background-color: #ffffff; color: #0d0c22; padding-bottom: 4rem; overflow-x: hidden; }
 
         /* =========================================================
-           1. FLOATING NAVBAR (HIJAU) - SCROLL SENSITIVE & AUTO HIDE
+           1. FLOATING NAVBAR - SCROLL SENSITIVE & AUTO HIDE
            ========================================================= */
         .navbar-floating {
             position: fixed;
@@ -59,7 +59,7 @@
         .nav-link:hover { color: #0d0c22; }
 
         /* =========================================================
-           2. HERO SECTION WITH VIDEO (MERAH / ORANGE)
+           2. HERO SECTION WITH VIDEO
            ========================================================= */
         .hero-section {
             max-width: 1320px;
@@ -154,7 +154,6 @@
 
         .btn-cta:hover { background: #ea4c89; }
 
-        /* Right Side Video Container */
         .hero-media-wrapper {
             position: relative;
             width: 100%;
@@ -188,7 +187,7 @@
         }
 
         /* =========================================================
-           3. SEPARATOR & FILTER SEARCH BAR (BIRU)
+           3. SEPARATOR & FILTER SEARCH BAR
            ========================================================= */
         .separator-section {
             max-width: 1320px;
@@ -310,19 +309,69 @@
         }
 
         /* =========================================================
-           4. TEMPLATE GRID CONTENT
+           4. TEMPLATE GRID CONTENT & PRECISE CARD OVERLAY
            ========================================================= */
         .content-container { max-width: 1320px; margin: 0 auto; padding: 0 2rem; }
         .grid-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 2.2rem 1.8rem; }
         .card { display: flex; flex-direction: column; gap: 0.75rem; }
         
-        .card-thumbnail-wrapper { position: relative; width: 100%; height: 250px; border-radius: 12px; overflow: hidden; background: #e0e0e0; }
+        .card-thumbnail-wrapper { 
+            position: relative; 
+            width: 100%; 
+            height: 250px; 
+            border-radius: 12px; 
+            overflow: hidden; 
+            background: #e0e0e0; 
+        }
         .card-img { width: 100%; height: 100%; object-fit: cover; }
-        .card-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0) 60%); display: flex; align-items: flex-end; justify-content: space-between; padding: 1.25rem; opacity: 0; transition: opacity 0.25s; }
-        .card-thumbnail-wrapper:hover .card-overlay { opacity: 1; }
-        .overlay-title { color: #fff; font-weight: 600; font-size: 0.95rem; }
         
-        .btn-overlay { background: #fff; color: #0d0c22; padding: 0.45rem 0.85rem; border-radius: 8px; font-size: 0.8rem; font-weight: 600; text-decoration: none; margin-left: 0.3rem; border: none; cursor: pointer; }
+        /* HOVER OVERLAY FIX */
+        .card-overlay { 
+            position: absolute; 
+            inset: 0; 
+            background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0) 100%); 
+            display: flex; 
+            align-items: flex-end; 
+            justify-content: space-between; 
+            padding: 1.25rem; 
+            opacity: 0; 
+            transition: opacity 0.25s ease; 
+            z-index: 10;
+        }
+        .card-thumbnail-wrapper:hover .card-overlay { opacity: 1; }
+        
+        .overlay-title { 
+            color: #fff; 
+            font-weight: 600; 
+            font-size: 0.95rem; 
+            max-width: 50%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        .overlay-action-btns {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .btn-overlay { 
+            background: #ffffff; 
+            color: #0d0c22; 
+            padding: 0.45rem 0.85rem; 
+            border-radius: 8px; 
+            font-size: 0.8rem; 
+            font-weight: 600; 
+            text-decoration: none; 
+            border: none; 
+            cursor: pointer; 
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            line-height: 1;
+            transition: all 0.2s;
+        }
         .btn-overlay:hover { background: #ea4c89; color: #fff; }
 
         .card-meta { display: flex; align-items: center; justify-content: space-between; }
@@ -349,7 +398,7 @@
 </head>
 <body>
 
-    <!-- 1. FLOATING NAVBAR (HIJAU) - AUTO HIDE 1.5 DETIK PAS BERHENTI SCROLL -->
+    <!-- 1. FLOATING NAVBAR -->
     <nav class="navbar-floating" id="floatingNav">
         <div style="display: flex; align-items: center; gap: 1.5rem;">
             <a href="{{ route('home') }}" class="logo">Supahub.plate</a>
@@ -397,7 +446,7 @@
         </div>
     </header>
 
-    <!-- 2. HERO SECTION WITH SINGLE VIDEO (MERAH / ORANGE) -->
+    <!-- 2. HERO SECTION -->
     <section class="hero-section">
         <div class="hero-left">
             <div class="pill-badges">
@@ -418,7 +467,6 @@
             </a>
         </div>
 
-        <!-- HANYA 1 VIDEO DI SEBELAH KANAN HERO -->
         <div class="hero-media-wrapper">
             <video autoplay loop muted playsinline class="hero-video">
                 <source src="{{ asset('videos/hero-video.mp4') }}" type="video/mp4">
@@ -429,7 +477,7 @@
         </div>
     </section>
 
-    <!-- 3. SEPARATOR & FILTER SEARCH BAR (BIRU) -->
+    <!-- 3. SEPARATOR & FILTER SEARCH BAR -->
     <section class="separator-section" id="templates">
         <div class="tab-menu">
             <a href="#" class="tab-item active"><i class="fa-solid fa-image"></i> Shots</a>
@@ -437,13 +485,11 @@
             <a href="#" class="tab-item"><i class="fa-solid fa-briefcase"></i> Services</a>
         </div>
 
-        <!-- Big Search Bar Container -->
         <form action="{{ route('home') }}" method="GET" class="big-search-box">
             <input type="text" name="search" class="big-search-input" placeholder="What type of design or template are you interested in?" value="{{ request('search') }}">
             <button type="submit" class="big-search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
         </form>
 
-        <!-- Popular Tags & Sorting Bar -->
         <div class="popular-tags-bar">
             <div class="tags-list">
                 <span class="tag-label">Popular:</span>
@@ -475,7 +521,7 @@
                             <img src="{{ $item->thumbnail }}" alt="{{ $item->judul }}" class="card-img">
                             <div class="card-overlay">
                                 <span class="overlay-title">{{ $item->judul }}</span>
-                                <div>
+                                <div class="overlay-action-btns">
                                     <?php if($item->link_preview): ?>
                                         <button class="btn-overlay" onclick="openPreview('{{ $item->link_preview }}', '{{ $item->judul }}', {{$item->id }})">
                                             <i class="fa-solid fa-eye"></i> Demo
@@ -533,7 +579,6 @@
 
     <!-- JAVASCRIPT LOGIC -->
     <script>
-        // Floating Nav scroll + auto-hide setelah 1.5 detik (1500ms)
         let isScrollingTimer = null;
         const floatingNav = document.getElementById('floatingNav');
 
@@ -551,7 +596,6 @@
             }
         });
 
-        // Like AJAX
         function likeTemplate(id, element) {
             fetch(`/template/${id}/like`, {
                 method: 'POST',
@@ -569,7 +613,6 @@
             });
         }
 
-        // Preview Modal
         function openPreview(url, title, id) {
             document.getElementById('modalTitle').innerText = title;
             document.getElementById('previewIframe').src = url;
@@ -596,7 +639,6 @@
             if(device === 'mobile') iframe.style.width = '375px';
         }
 
-        // Bookmark LocalStorage
         function bookmarkTemplate(id, element) {
             let bookmarks = JSON.parse(localStorage.getItem('bookmarks') || '[]');
             if(bookmarks.includes(id)) {
