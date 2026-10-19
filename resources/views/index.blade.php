@@ -10,7 +10,7 @@
     
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Mona Sans', sans-serif; }
-        body { background-color: #ffffff; color: #0d0c22; padding-bottom: 4rem; overflow-x: hidden; }
+        body { background-color: #FFF8FF; color: #000500; padding-bottom: 4rem; overflow-x: hidden; }
 
         /* =========================================================
            1. FLOATING NAVBAR - SCROLL SENSITIVE & AUTO HIDE
@@ -20,30 +20,31 @@
             top: 0;
             left: 0;
             right: 0;
-            background: #ffffff;
+            background: #FFF8FF;
             display: flex;
             align-items: center;
             justify-content: space-between;
             padding: 0.9rem 2.5rem;
-            border-bottom: 1px solid #f3f3f4;
+            border-bottom: 1px solid #f2e6d8;
             z-index: 999;
             transform: translateY(-100%);
             transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            box-shadow: 0 4px 20px rgba(54, 36, 23, 0.05);
         }
 
         .navbar-floating.show {
             transform: translateY(0);
         }
 
-        .logo { font-size: 1.6rem; font-weight: 800; font-style: italic; color: #0d0c22; text-decoration: none; letter-spacing: -0.5px; }
+        .logo { font-size: 1.6rem; font-weight: 800; font-style: italic; color: #362417; text-decoration: none; letter-spacing: -0.5px; }
 
-        .search-container-small { display: flex; align-items: center; background: #f3f3f4; border-radius: 999px; padding: 0.3rem 0.4rem 0.3rem 1rem; width: 320px; }
-        .search-input-small { border: none; background: transparent; outline: none; font-size: 0.88rem; width: 100%; color: #0d0c22; }
-        .search-btn-small { background: #ea4c89; color: #fff; border: none; width: 28px; height: 28px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; }
+        .search-container-small { display: flex; align-items: center; background: #f7ebd9; border-radius: 999px; padding: 0.3rem 0.4rem 0.3rem 1rem; width: 320px; }
+        .search-input-small { border: none; background: transparent; outline: none; font-size: 0.88rem; width: 100%; color: #000500; }
+        .search-btn-small { background: #362417; color: #fff; border: none; width: 28px; height: 28px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; transition: background 0.2s; }
+        .search-btn-small:hover { background: #92817A; }
 
-        .btn-action { background: #0d0c22; color: #fff; padding: 0.65rem 1.2rem; border-radius: 999px; text-decoration: none; font-size: 0.85rem; font-weight: 600; border: none; }
-        .btn-action:hover { opacity: 0.9; }
+        .btn-action { background: #362417; color: #FFF8FF; padding: 0.65rem 1.2rem; border-radius: 999px; text-decoration: none; font-size: 0.85rem; font-weight: 600; border: none; transition: background 0.2s; }
+        .btn-action:hover { background: #92817A; }
 
         /* Static Top Header */
         .header-top {
@@ -51,12 +52,12 @@
             align-items: center;
             justify-content: space-between;
             padding: 1.2rem 3rem;
-            background: #fff;
+            background: #FFF8FF;
         }
 
         .nav-links { display: flex; gap: 1.8rem; list-style: none; }
-        .nav-link { text-decoration: none; color: #6e6d7a; font-weight: 600; font-size: 0.9rem; }
-        .nav-link:hover { color: #0d0c22; }
+        .nav-link { text-decoration: none; color: #92817A; font-weight: 600; font-size: 0.9rem; transition: color 0.2s; }
+        .nav-link:hover { color: #362417; }
 
         /* =========================================================
            2. HERO SECTION WITH VIDEO
@@ -80,7 +81,7 @@
         .pill-badges {
             display: flex;
             gap: 0.5rem;
-            background: #f3f3f4;
+            background: #f7ebd9;
             padding: 0.25rem;
             border-radius: 999px;
             width: fit-content;
@@ -93,15 +94,15 @@
             border-radius: 999px;
             font-size: 0.75rem;
             font-weight: 700;
-            color: #6e6d7a;
+            color: #92817A;
             cursor: pointer;
             text-transform: uppercase;
         }
 
         .pill-btn.active {
-            background: #fff;
-            color: #0d0c22;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            background: #362417;
+            color: #FFF8FF;
+            box-shadow: 0 2px 8px rgba(54, 36, 23, 0.15);
         }
 
         .hero-headline {
@@ -109,11 +110,11 @@
             font-weight: 800;
             line-height: 1.1;
             letter-spacing: -1.5px;
-            color: #0d0c22;
+            color: #000500;
         }
 
         .hero-headline span {
-            color: #ea4c89;
+            color: #362417;
         }
 
         .hero-bullets {
@@ -127,19 +128,19 @@
             display: flex;
             align-items: center;
             gap: 0.8rem;
-            color: #555462;
+            color: #554a43;
             font-size: 0.98rem;
             font-weight: 500;
         }
 
         .hero-bullets li i {
-            color: #ea4c89;
+            color: #362417;
             font-size: 0.9rem;
         }
 
         .btn-cta {
-            background: #0d0c22;
-            color: #fff;
+            background: #362417;
+            color: #FFF8FF;
             padding: 0.95rem 1.8rem;
             border-radius: 999px;
             text-decoration: none;
@@ -152,7 +153,7 @@
             transition: background 0.2s;
         }
 
-        .btn-cta:hover { background: #ea4c89; }
+        .btn-cta:hover { background: #92817A; }
 
         .hero-media-wrapper {
             position: relative;
@@ -160,8 +161,8 @@
             height: 420px;
             border-radius: 28px;
             overflow: hidden;
-            background: #f0f0f2;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            background: #f7ebd9;
+            box-shadow: 0 20px 40px rgba(54, 36, 23, 0.08);
         }
 
         .hero-video {
@@ -174,13 +175,13 @@
             position: absolute;
             bottom: 1rem;
             right: 1rem;
-            background: rgba(255, 255, 255, 0.85);
+            background: rgba(255, 248, 255, 0.88);
             backdrop-filter: blur(8px);
             padding: 0.4rem 0.9rem;
             border-radius: 999px;
             font-size: 0.75rem;
             font-weight: 700;
-            color: #0d0c22;
+            color: #362417;
             display: flex;
             align-items: center;
             gap: 0.4rem;
@@ -199,13 +200,13 @@
             display: flex;
             gap: 1.5rem;
             margin-bottom: 1.2rem;
-            border-bottom: 1px solid #f3f3f4;
+            border-bottom: 1px solid #f2e6d8;
             padding-bottom: 0.8rem;
         }
 
         .tab-item {
             text-decoration: none;
-            color: #6e6d7a;
+            color: #92817A;
             font-weight: 700;
             font-size: 0.9rem;
             display: flex;
@@ -213,15 +214,16 @@
             gap: 0.5rem;
             padding-bottom: 0.5rem;
             border-bottom: 2px solid transparent;
+            transition: all 0.2s;
         }
 
         .tab-item.active {
-            color: #0d0c22;
-            border-color: #0d0c22;
+            color: #362417;
+            border-color: #362417;
         }
 
         .big-search-box {
-            background: #f3f3f4;
+            background: #f7ebd9;
             border-radius: 16px;
             padding: 0.75rem 0.75rem 0.75rem 1.5rem;
             display: flex;
@@ -232,9 +234,9 @@
         }
 
         .big-search-box:focus-within {
-            background: #fff;
-            box-shadow: 0 0 0 4px rgba(234, 76, 137, 0.15);
-            border: 1px solid #ea4c89;
+            background: #FFF8FF;
+            box-shadow: 0 0 0 4px rgba(54, 36, 23, 0.12);
+            border: 1px solid #362417;
         }
 
         .big-search-input {
@@ -243,19 +245,21 @@
             outline: none;
             font-size: 1rem;
             width: 100%;
-            color: #0d0c22;
+            color: #000500;
         }
 
         .big-search-btn {
-            background: #ea4c89;
-            color: #fff;
+            background: #362417;
+            color: #FFF8FF;
             border: none;
             width: 44px;
             height: 44px;
             border-radius: 12px;
             cursor: pointer;
             font-size: 1rem;
+            transition: background 0.2s;
         }
+        .big-search-btn:hover { background: #92817A; }
 
         .popular-tags-bar {
             display: flex;
@@ -275,15 +279,15 @@
         .tag-label {
             font-size: 0.85rem;
             font-weight: 700;
-            color: #0d0c22;
+            color: #362417;
             margin-right: 0.3rem;
         }
 
         .tag-pill {
             text-decoration: none;
-            background: #fff;
-            border: 1px solid #e0e0e0;
-            color: #555462;
+            background: #FFF8FF;
+            border: 1px solid #e5d8c8;
+            color: #92817A;
             padding: 0.35rem 0.85rem;
             border-radius: 999px;
             font-size: 0.8rem;
@@ -292,16 +296,17 @@
         }
 
         .tag-pill:hover, .tag-pill.active {
-            background: #0d0c22;
-            color: #fff;
-            border-color: #0d0c22;
+            background: #362417;
+            color: #FFF8FF;
+            border-color: #362417;
         }
 
         .sort-select {
             padding: 0.45rem 1rem;
             border-radius: 10px;
-            border: 1px solid #e0e0e0;
-            background: #fff;
+            border: 1px solid #e5d8c8;
+            background: #FFF8FF;
+            color: #362417;
             font-size: 0.85rem;
             font-weight: 700;
             outline: none;
@@ -321,7 +326,7 @@
             height: 250px; 
             border-radius: 12px; 
             overflow: hidden; 
-            background: #e0e0e0; 
+            background: #f7ebd9; 
         }
         .card-img { width: 100%; height: 100%; object-fit: cover; }
         
@@ -329,7 +334,7 @@
         .card-overlay { 
             position: absolute; 
             inset: 0; 
-            background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0) 100%); 
+            background: linear-gradient(to top, rgba(0,5,0,0.85) 0%, rgba(0,5,0,0.2) 50%, rgba(0,5,0,0) 100%); 
             display: flex; 
             align-items: flex-end; 
             justify-content: space-between; 
@@ -341,7 +346,7 @@
         .card-thumbnail-wrapper:hover .card-overlay { opacity: 1; }
         
         .overlay-title { 
-            color: #fff; 
+            color: #FFF8FF; 
             font-weight: 600; 
             font-size: 0.95rem; 
             max-width: 50%;
@@ -357,8 +362,8 @@
         }
 
         .btn-overlay { 
-            background: #ffffff; 
-            color: #0d0c22; 
+            background: #FFF8FF; 
+            color: #362417; 
             padding: 0.45rem 0.85rem; 
             border-radius: 8px; 
             font-size: 0.8rem; 
@@ -372,28 +377,28 @@
             line-height: 1;
             transition: all 0.2s;
         }
-        .btn-overlay:hover { background: #ea4c89; color: #fff; }
+        .btn-overlay:hover { background: #362417; color: #FFF8FF; }
 
         .card-meta { display: flex; align-items: center; justify-content: space-between; }
         .author-info { display: flex; align-items: center; gap: 0.5rem; }
-        .avatar { width: 24px; height: 24px; border-radius: 50%; background: #ea4c89; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: 800; }
-        .author-name { font-size: 0.88rem; font-weight: 700; }
-        .tech-badge { background: #f0f0f2; color: #555; font-size: 0.65rem; font-weight: 700; padding: 0.15rem 0.4rem; border-radius: 4px; }
+        .avatar { width: 24px; height: 24px; border-radius: 50%; background: #362417; color: #FFF8FF; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: 800; }
+        .author-name { font-size: 0.88rem; font-weight: 700; color: #000500; }
+        .tech-badge { background: #f7ebd9; color: #362417; font-size: 0.65rem; font-weight: 700; padding: 0.15rem 0.4rem; border-radius: 4px; }
 
-        .stats { display: flex; align-items: center; gap: 0.8rem; color: #9e9ea7; font-size: 0.8rem; font-weight: 600; }
+        .stats { display: flex; align-items: center; gap: 0.8rem; color: #92817A; font-size: 0.8rem; font-weight: 600; }
         .stat-item { display: flex; align-items: center; gap: 0.3rem; cursor: pointer; transition: color 0.2s; }
-        .stat-item:hover, .stat-item.liked { color: #ea4c89; }
-        .stat-item.bookmarked { color: #f39c12; }
+        .stat-item:hover, .stat-item.liked { color: #362417; }
+        .stat-item.bookmarked { color: #362417; }
 
         /* Modal Live Preview */
-        .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 1000; flex-direction: column; }
-        .modal-header { display: flex; justify-content: space-between; align-items: center; padding: 0.8rem 2rem; background: #0d0c22; color: #fff; }
-        .device-switcher { display: flex; gap: 0.5rem; background: rgba(255,255,255,0.1); padding: 0.3rem; border-radius: 8px; }
-        .dev-btn { background: transparent; color: #ccc; border: none; padding: 0.4rem 0.8rem; border-radius: 6px; cursor: pointer; font-size: 0.9rem; }
-        .dev-btn.active { background: #ea4c89; color: #fff; }
+        .modal { display: none; position: fixed; inset: 0; background: rgba(0,5,0,0.85); z-index: 1000; flex-direction: column; }
+        .modal-header { display: flex; justify-content: space-between; align-items: center; padding: 0.8rem 2rem; background: #362417; color: #FFF8FF; }
+        .device-switcher { display: flex; gap: 0.5rem; background: rgba(255,248,255,0.12); padding: 0.3rem; border-radius: 8px; }
+        .dev-btn { background: transparent; color: #f2e6d8; border: none; padding: 0.4rem 0.8rem; border-radius: 6px; cursor: pointer; font-size: 0.9rem; }
+        .dev-btn.active { background: #92817A; color: #FFF8FF; }
         .modal-body { flex: 1; display: flex; justify-content: center; align-items: center; padding: 1rem; }
         .iframe-container { width: 100%; height: 100%; background: #fff; border-radius: 8px; transition: width 0.3s ease; }
-        .close-modal { background: transparent; color: #fff; border: none; font-size: 1.5rem; cursor: pointer; }
+        .close-modal { background: transparent; color: #FFF8FF; border: none; font-size: 1.5rem; cursor: pointer; }
     </style>
 </head>
 <body>
@@ -412,14 +417,14 @@
             @auth
                 <span style="font-weight: 700; font-size: 0.88rem;">Halo, {{ Auth::user()->name }}</span>
                 @if(Auth::user()->is_admin)
-                    <a href="{{ route('admin.index') }}" class="btn-action" style="background:#ea4c89;"><i class="fa-solid fa-gear"></i> Admin</a>
+                    <a href="{{ route('admin.index') }}" class="btn-action" style="background:#362417;"><i class="fa-solid fa-gear"></i> Admin</a>
                 @endif
                 <form action="{{ route('logout') }}" method="POST" style="display:inline;">
                     @csrf
-                    <button type="submit" style="background:transparent; border:none; color:#6e6d7a; font-weight:600; cursor:pointer;">Logout</button>
+                    <button type="submit" style="background:transparent; border:none; color:#92817A; font-weight:600; cursor:pointer;">Logout</button>
                 </form>
             @else
-                <a href="{{ route('login') }}" style="text-decoration:none; color:#6e6d7a; font-weight:700; font-size:0.88rem;">Log in</a>
+                <a href="{{ route('login') }}" style="text-decoration:none; color:#92817A; font-weight:700; font-size:0.88rem;">Log in</a>
                 <a href="{{ route('register') }}" class="btn-action">Sign up</a>
             @endauth
         </div>
@@ -437,10 +442,10 @@
         <div style="display: flex; align-items: center; gap: 1rem;">
             @auth
                 @if(Auth::user()->is_admin)
-                    <a href="{{ route('admin.index') }}" class="btn-action" style="background:#ea4c89;"><i class="fa-solid fa-gear"></i> Admin</a>
+                    <a href="{{ route('admin.index') }}" class="btn-action" style="background:#362417;"><i class="fa-solid fa-gear"></i> Admin</a>
                 @endif
             @else
-                <a href="{{ route('login') }}" style="text-decoration:none; color:#0d0c22; font-weight:700; font-size:0.9rem;">Log in</a>
+                <a href="{{ route('login') }}" style="text-decoration:none; color:#000500; font-weight:700; font-size:0.9rem;">Log in</a>
                 <a href="{{ route('register') }}" class="btn-action">Sign up</a>
             @endauth
         </div>
@@ -556,7 +561,7 @@
                     </div>
                 <?php endforeach; ?>
             <?php else: ?>
-                <p style="text-align: center; grid-column: 1/-1; color: #9e9ea7; padding: 3rem 0;">Template tidak ditemukan, bre!</p>
+                <p style="text-align: center; grid-column: 1/-1; color: #92817A; padding: 3rem 0;">Template tidak ditemukan, bre!</p>
             <?php endif; ?>
         </div>
     </main>
